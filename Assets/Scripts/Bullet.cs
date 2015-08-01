@@ -19,7 +19,7 @@ public class Bullet : NetworkBehaviour {
 		if (other.gameObject.GetComponent<Player>().Equals(owner)) {
 			Debug.Log("OH SHIZ I SHOT MYSELFS");
 		} else {
-			Debug.Log("YAY I SHOT SOMEONE ELSEZ");
+			Debug.Log("YAY I SHOT SOMEONE ELSE");
 		}
 	}
 }
