@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
+using UnityEngine.Networking;
 using System.Collections;
 
 public class GameManager : MonoBehaviour {
 
 	public static GameManager instance = null;
-	public int score = 100;
 
 	// Use this for initialization
 	void Awake () {
@@ -24,5 +24,6 @@ public class GameManager : MonoBehaviour {
 
 	void InitGame() {
 		//Do some stuff to init the game here.
+	
 	}
 }

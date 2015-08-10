@@ -16,10 +16,13 @@ public class Bullet : NetworkBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
-		if (other.gameObject.GetComponent<Player>().Equals(owner)) {
+		Player otherPlayer = other.gameObject.GetComponent<Player>();
+		if (otherPlayer == null)
+			return;
+		if (otherPlayer.Equals(owner)) {
 			Debug.Log("OH SHIZ I SHOT MYSELFS");
 		} else {
-			Debug.Log("YAY I SHOT SOMEONE ELSE");
+			Debug.Log("YAY I SHOT SOMEONE ELSE: " + otherPlayer.playerName);
 		}
 	}
 }

@@ -6,6 +6,8 @@ public class Player : NetworkBehaviour {
 
 	public GameObject projectilePrefab;
 
+	public string playerName;
+
 	public enum NudgeDir
 	{
 		Up,
@@ -21,7 +23,6 @@ public class Player : NetworkBehaviour {
 		if (!isLocalPlayer)
 			return;
 		Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-		//PUT youir code here for ratating the player.
 
 		CmdRotatePlayer(mousePos);
 
@@ -85,5 +86,17 @@ public class Player : NetworkBehaviour {
 		bullet.owner = this;
 		Destroy(projectile, 2.0f);
 		NetworkServer.Spawn(projectile);
+	}
+
+	[Command]
+	public void CmdKillPlayer() {
+		Debug.Log("Killing Player: " + playerName);
+		// TODO: Kill the player.
+	}
+
+	[Command]
+	public void CmdSetPlayerName(string name) {
+		Debug.Log("Player name set");
+		playerName = name;
 	}
 }
