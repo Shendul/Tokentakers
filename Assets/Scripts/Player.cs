@@ -80,7 +80,7 @@ public class Player : NetworkBehaviour {
 
 	[Command]
 	public void CmdFire() {
-		GameObject projectile = (GameObject)GameObject.Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+		GameObject projectile = (GameObject)GameObject.Instantiate(projectilePrefab, transform.position, transform.rotation);
 		Bullet bullet = projectile.GetComponent<Bullet>();
 		bullet.direction = transform.up;
 		bullet.owner = this;
