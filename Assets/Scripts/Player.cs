@@ -16,7 +16,7 @@ public class Player : NetworkBehaviour {
 		Right
 	}
 
-	public float moveSpeed = 20.0f;
+	private float moveSpeed = 10.0f;
 
 	[ClientCallback]
 	void Update() {
@@ -33,22 +33,22 @@ public class Player : NetworkBehaviour {
 	}
 
 	void HandleMovementInput() {
-		if (Input.GetKey(KeyCode.LeftArrow))
+		if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
 		{
 			CmdNudge(NudgeDir.Left);
 		}
 
-		if (Input.GetKey(KeyCode.RightArrow))
+		if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
 		{
 			CmdNudge(NudgeDir.Right);
 		}
 
-		if (Input.GetKey(KeyCode.UpArrow))
+		if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
 		{
 			CmdNudge(NudgeDir.Up);
 		}
 
-		if (Input.GetKey(KeyCode.DownArrow))
+		if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
 		{
 			CmdNudge(NudgeDir.Down);
 		}
@@ -80,11 +80,13 @@ public class Player : NetworkBehaviour {
 
 	[Command]
 	public void CmdFire() {
-		GameObject projectile = (GameObject)GameObject.Instantiate(projectilePrefab, transform.position, transform.rotation);
+		GameObject projectile = (GameObject)GameObject
+			.Instantiate(projectilePrefab, transform.position, transform.rotation);
 		Bullet bullet = projectile.GetComponent<Bullet>();
 		bullet.direction = transform.up;
 		bullet.owner = this;
-		Destroy(projectile, 2.0f);
+		//TODO: Get the lifetime of the projectile from the projectile itself.
+		Destroy(projectile, 1.0f);
 		NetworkServer.Spawn(projectile);
 	}
 

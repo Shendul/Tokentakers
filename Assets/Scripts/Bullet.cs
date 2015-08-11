@@ -3,11 +3,11 @@ using UnityEngine.Networking;
 using System.Collections;
 
 public class Bullet : NetworkBehaviour {
-	public float moveSpeed = 5.0f;
+	private float moveSpeed = 20.0f;
 	public Vector3 direction;
 	public Player owner;
 
-	void FixedUpdate() {
+	void Update() {
 		if (!base.isServer) {
 			return;
 		}

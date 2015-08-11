@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Networking;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
@@ -9,6 +10,8 @@ public class Signup : MonoBehaviour {
 	private string email = string.Empty;
 	private string password = string.Empty;
 	private string passwordAgain = string.Empty;
+
+	public NetworkManager networkManager;
 
 	public void SetUsername(string username) {
 		// TODO: Add validation.
@@ -69,7 +72,8 @@ public class Signup : MonoBehaviour {
 				Debug.Log("Signup success!");
 				// Make sure the failure text is empty (hidden).
 				failureTextObject.text = "";
-				// TODO: Log into game and remove the startup menu
+				// TODO: Log into game.
+				networkManager.StartClient();
 			} else {
 				Debug.Log ("Signup Failed!");
 				failureTextObject.text = "Username or Email are in use.";

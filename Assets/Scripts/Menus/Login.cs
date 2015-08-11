@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Networking;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
@@ -7,6 +8,8 @@ using System.Text;
 public class Login : MonoBehaviour {
 	private string username = string.Empty;
 	private string password = string.Empty;
+	
+	public NetworkManager networkManager;
 
 	public void SetUsername(string username) {
 		// TODO: Add validation.
@@ -32,7 +35,6 @@ public class Login : MonoBehaviour {
 		StringBuilder postData = new StringBuilder();
 		postData.Append("{\"username\":\"" + username);
 		postData.Append("\",\"password\": \"" + password + "\"}");
-		Debug.Log(postData.ToString());
 		Dictionary<string, string> headers = new Dictionary<string, string>();
 		headers.Add("Content-Type", "application/json");
 
@@ -50,6 +52,7 @@ public class Login : MonoBehaviour {
 				// Make sure the failure text is empty (hidden).
 				failureTextObject.text = "";
 				// TODO: remove the startup menu and log into the game.
+				networkManager.StartClient();
 			} else {
 				//Debug.Log ("Login Failed!");
 				failureTextObject.text = "Username or Pass are incorrect.";

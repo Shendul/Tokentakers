@@ -13,7 +13,6 @@ GameObject:
   - 212: {fileID: 21225040}
   - 114: {fileID: 11400226}
   - 114: {fileID: 11438630}
-  - 114: {fileID: 11465022}
   - 114: {fileID: 11458068}
   m_Layer: 0
   m_Name: Projectile
@@ -113,7 +112,7 @@ MonoBehaviour:
   m_SyncSpin: 0
   m_MovementTheshold: .00100000005
   m_SnapThreshold: 5
-  m_InterpolateRotation: 1
+  m_InterpolateRotation: 0
   m_InterpolateMovement: 1
 --- !u!114 &11458068
 MonoBehaviour:
@@ -126,41 +125,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f16b3c90594427944ae7b6f8d3027172, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
   direction: {x: 0, y: 0, z: 0}
   owner: {fileID: 0}
---- !u!114 &11465022
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 136376}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 372142912, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SceneId:
-    m_Value: 0
-  m_AssetId:
-    i0: 58
-    i1: 235
-    i2: 124
-    i3: 222
-    i4: 77
-    i5: 109
-    i6: 5
-    i7: 36
-    i8: 91
-    i9: 86
-    i10: 179
-    i11: 185
-    i12: 128
-    i13: 135
-    i14: 95
-    i15: 192
-  m_ServerOnly: 0
-  m_LocalPlayerAuthority: 0
 --- !u!212 &21225040
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -230,6 +196,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Size.y
       value: .600000024
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_ServerOnly
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_InterpolateRotation
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
