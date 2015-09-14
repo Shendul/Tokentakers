@@ -20,6 +20,12 @@ public class Player : NetworkBehaviour {
 
 	[ClientCallback]
 	void Update() {
+		if (isLocalPlayer){
+			Vector3 PlayerPOS = transform.position;
+			GameObject.Find("Main Camera").transform.position = new Vector3(PlayerPOS.x, 
+				PlayerPOS.y, -10);
+		}
+			
 		if (!isLocalPlayer)
 			return;
 		Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
