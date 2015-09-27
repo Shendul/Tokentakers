@@ -14,6 +14,8 @@ GameObject:
   - 114: {fileID: 11449614}
   - 114: {fileID: 11476104}
   - 60: {fileID: 6032842}
+  - 114: {fileID: 11491040}
+  - 114: {fileID: 11447352}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -78,6 +80,17 @@ PolygonCollider2D:
       - {x: .254999995, y: -.284999996}
       - {x: .455000013, y: -.264999986}
       - {x: .495000005, y: -.254999995}
+--- !u!114 &11447352
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 194024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3da1a65f29a109d4cb404d487c4d2cb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11449614
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -122,7 +135,7 @@ MonoBehaviour:
     i14: 79
     i15: 165
   m_ServerOnly: 0
-  m_LocalPlayerAuthority: 0
+  m_LocalPlayerAuthority: 1
 --- !u!114 &11476104
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -134,8 +147,8 @@ MonoBehaviour:
   m_Script: {fileID: -1768714887, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_TransformSyncMode: 2
-  m_SendInterval: .0833333358
+  m_TransformSyncMode: 1
+  m_SendInterval: .0909090936
   m_SyncRotationAxis: 3
   m_RotationSyncCompression: 0
   m_SyncSpin: 0
@@ -143,6 +156,18 @@ MonoBehaviour:
   m_SnapThreshold: 5
   m_InterpolateRotation: 1
   m_InterpolateMovement: 1
+--- !u!114 &11491040
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 194024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df47b21d6eb70df4e97f40af976500e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myRigidBody: {fileID: 5012926}
 --- !u!212 &21239114
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -178,7 +203,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: m_LocalPlayerAuthority
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_IsKinematic
@@ -210,7 +235,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_SendInterval
-      value: .0833333358
+      value: .0909090936
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: bulletPrefab
@@ -225,6 +250,26 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: 5bd318dbf5c6ca7439414a4ff7df33ad,
         type: 3}
+    - target: {fileID: 0}
+      propertyPath: myTransform
+      value: 
+      objectReference: {fileID: 457120}
+    - target: {fileID: 0}
+      propertyPath: lerpRate
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: myRigidBody
+      value: 
+      objectReference: {fileID: 5012926}
+    - target: {fileID: 0}
+      propertyPath: m_TransformSyncMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_InterpolateMovement
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 194024}
