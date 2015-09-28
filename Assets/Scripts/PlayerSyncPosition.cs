@@ -6,12 +6,15 @@ public class PlayerSyncPosition : NetworkBehaviour {
 
   [SyncVar]
 	private Vector3 syncPos;
-	[SerializeField] Rigidbody2D myRigidBody;
-
+  private Rigidbody2D myRigidBody;
 	private float lerpRate = 30;
 
 	// TODO: move this out of here, and make a call to get it from somewhere.
 	private float moveSpeed = 30.0f;
+
+	void Start() {
+		myRigidBody = GetComponent<Rigidbody2D>();
+	}
 
 	void FixedUpdate() {
 		if (isLocalPlayer) {

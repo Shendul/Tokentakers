@@ -20,7 +20,7 @@ public class Bullet : NetworkBehaviour {
 		if (otherPlayer == null)
 			return;
 		if (otherPlayer.Equals(owner)) {
-			Debug.Log("OH SHIZ I SHOT MYSELFS");
+			//Debug.Log("OH SHIZ I SHOT MYSELFS");
 		} else {
 			Debug.Log("YAY I SHOT SOMEONE ELSE: " + otherPlayer.playerName);
 		}
